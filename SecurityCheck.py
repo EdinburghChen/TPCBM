@@ -16,7 +16,7 @@ with st.form("my_form"):
    if submitted:
        st.write( ":red["+queryName+"]" )
        #建立資料庫連線
-       conn=sqlite3.connect("./db/bmdb.db")
+       conn=sqlite3.connect("./bmdb.db")
        try:
           cursor=conn.cursor()
           sqlQueryStr="SELECT 姓名代號,姓名,單位代號,單位名稱,聯絡資訊 FROM 關懷人員 WHERE 姓名 like '%" + queryName  +"%';"
