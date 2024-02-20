@@ -34,9 +34,9 @@ with st.form("my_form"):
        except Exception as e:
          st.write("Error: %s" % e)
     
-  
+   
    if ( len(queryResult)>=1 ):
        st.write("建議處置：若該員識別證為 " + "**:red["+ queryResult[0][3] + "]** 員工，請聯繫 " +"**:red[" + queryResult[0][4] +"]** 協助處理。")
    else:
-      st.write('請依大樓門禁管理要點辦理!!')  
+      st.write(":green[請依大樓門禁管理要點辦理]!!")  
 #st.write("Outside the form")
