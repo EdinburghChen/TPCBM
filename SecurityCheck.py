@@ -38,7 +38,7 @@ with st.form("my_form"):
          st.write("Error: %s" % e)
     
    
-   if (len(queryResult)>=1):
+   if (len(queryResult)>=1 and queryName!=""):
        st.write("建議處置：若該員識別證為 " + "**:red["+ queryResult[0][3] + "]** 員工，請聯繫 " +"**:red[" + queryResult[0][4] +"]** 協助處理。")
    else:
       if(queryName!=""):
