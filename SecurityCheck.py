@@ -4,7 +4,12 @@ import sqlite3
 #建立一個空串列用於存放結果
 queryResult=[]
 
-hide_streamlit_style = "<style>#MainMenu {visibility: hidden;}footer {visibility: hidden;}</style>"
+hide_streamlit_style = """
+            <style>
+            [data-testid="stToolbar"] {visibility: hidden !important;}
+            footer {visibility: hidden !important;}
+            </style>
+            """
 st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 
 st.set_page_config(page_title="保全AI助理", page_icon="😎")
