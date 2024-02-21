@@ -4,8 +4,8 @@ import sqlite3
 #建立一個空串列用於存放結果
 queryResult=[]
 
-st.set_page_config(page_title="保全AI助理", page_icon="😎")
-st.markdown("保全AI助理")
+st.set_page_config(page_title="保全助理APP", page_icon="😎")
+st.markdown("保全助理APP")
 
 hide_streamlit_style = """<style>[data-testid="stToolbar"] {visibility: hidden !important;}footer {visibility: hidden !important;}</style>"""
 st.markdown(hide_streamlit_style, unsafe_allow_html=True)
@@ -39,8 +39,10 @@ with st.form("my_form"):
     
    
    if (len(queryResult)>=1 and queryName!=""):
-       st.write("建議處置：若該員識別證為 " + "**:red["+ queryResult[0][3] + "]** 員工，請聯繫 " +"**:red[" + queryResult[0][4] +"]** 協助處理。")
+       st.write("建議處置：
+                 1.請出示單位主管核准之加班證明。
+                 2.若該員識別證為 " + "**:red["+ queryResult[0][3] + "]** 員工，請聯繫 " +"**:red[" + queryResult[0][4] +"]** 協助處理。")
    else:
       if(queryName!=""):
-        st.write(":green[請依大樓門禁管理要點辦理]!!")  
+        st.write(":green[請該員出示單位主管核准之加班證明，並依大樓門禁管理要點辦理]!!")  
 #st.write("Outside the form")
