@@ -5,7 +5,7 @@ import sqlite3
 queryResult=[]
 
 st.set_page_config(page_title="保全助理APP", page_icon="😎")
-st.markdown("##保全助理APP")
+st.markdown("## 保全助理APP")
 
 hide_streamlit_style = """<style>[data-testid="stToolbar"] {visibility: hidden !important;}footer {visibility: hidden !important;}</style>"""
 st.markdown(hide_streamlit_style, unsafe_allow_html=True)
