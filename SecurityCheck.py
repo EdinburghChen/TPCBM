@@ -17,7 +17,7 @@ with st.form("my_form"):
    # Every form must have a submit button.
    submitted = st.form_submit_button("查詢")
    if submitted:
-       st.write( ":red["+queryName+"]" )
+       #st.write( ":red["+queryName+"]" )
        #建立資料庫連線
        conn=sqlite3.connect("./bmdb.db")
        try:
@@ -40,9 +40,8 @@ with st.form("my_form"):
    
    if (len(queryResult)>=1 and queryName!=""):
        st.write("**建議處置：**")
-       st.write("1.請該員出示:red[**單位主管核准]之加班證明。")
+       st.write("1.請該員出示:red[**單位主管核准**]之加班證明。")
        st.write("2.若識別證為 " + "**:red["+ queryResult[0][3] + "]** 員工，請聯繫 " +"**:red[" + queryResult[0][4] +"]** 協助處理。")
-       st.markdown("# 1.請該員出示**:red[單位主管核准]之加班證明。")
    else:
       if(queryName!=""):
         st.write(":green[請該員出示單位主管核准之加班證明，並依大樓門禁管理要點辦理]!!")  
