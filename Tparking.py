@@ -1,4 +1,4 @@
-import datetime
+from datetime import datetime, timedelta
 import streamlit as st
 import sqlite3
 import requests
@@ -23,7 +23,7 @@ with st.form("my_form"):
    # Every form must have a submit button.
    submitted = st.form_submit_button("確定")
 
-if submitted:
+if submitted & ((parkingNo != "") & (carNo != "")):
   #st.write(f'{leveloption}-{parkingNo}：{carNo}')
   st.write(f'已登記 :red[{carNo}] 臨停於 :red[{leveloption}-{parkingNo}] 車位，感謝您的配合!')
   #Line Notify
@@ -32,7 +32,7 @@ if submitted:
   # 設定台灣台北時區
   tz = timezone('Asia/Taipei')
   # 取得目前時間
-  now = tz.localize(datetime.datetime.now())
+  now = tz.localize(datetime.datetime.now()) + timedelta(hours=8)
    
   #tmpdate=datetime.datetime.today().strftime('%Y-%m-%d %H:%M:%S')
   myday=now.strftime('%Y-%m-%d')
