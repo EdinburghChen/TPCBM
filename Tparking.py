@@ -7,15 +7,21 @@ from pytz import timezone
 # 要發送的訊息
 message = '\n'
 # LINE Notify 權杖
-#token = "wQjVbOiFr8DPS014YuPxdUWyCzmw5JoLrtPhBZvlSdd" #; //安防群組
+#token = "wQjVbOiFr8DPS014YuPxdUWyCzmw5JoLrtPhBZvlSdd"; //安防群組
 token = "QXrWt5K73eJVZkgQK7nnXEIecoAD4T4maO6L6GDK4CY" #我的剪貼簿
 
 st.set_page_config(page_title="臨時停車", page_icon="🚗")
 st.markdown("## 臨時停車登記")
 
+# 設定台灣台北時區
+#tz = timezone('Asia/Taipei')
+# 取得目前時間
+now = datetime.now() + timedelta(hours=8)
+
 with st.form("my_form"):
    #st.write("Inside the form")
-   st.markdown(f'日期：{datetime.date.today()}')
+   mynow=now.strftime('%Y-%m-%d %H:%M:%S')
+   st.markdown(f'日期：{mynow}')
 
    leveloption = st.selectbox('停放樓層',("B2","B3"))
    parkingNo=st.text_input('車位號碼：')
@@ -29,14 +35,11 @@ if submitted & ((parkingNo != "") & (carNo != "")):
   #Line Notify
   # HTTP 標頭參數與資料
 
-  # 設定台灣台北時區
-  tz = timezone('Asia/Taipei')
-  # 取得目前時間
-  now = tz.localize(datetime.datetime.now()) + timedelta(hours=8)
-   
   #tmpdate=datetime.datetime.today().strftime('%Y-%m-%d %H:%M:%S')
   myday=now.strftime('%Y-%m-%d')
   mytime=now.strftime('%H:%M:%S')
+
+
   headers = {"Authorization": "Bearer " + token}
   message+=f'日期：{myday}\n時間：{mytime}\n車位：{leveloption}-{parkingNo}\n車牌：{carNo}'
   data = {'message': message}
