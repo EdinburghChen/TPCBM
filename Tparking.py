@@ -18,7 +18,7 @@ st.markdown("## 臨時停車登記")
 # 設定台灣台北時區
 #tz = timezone('Asia/Taipei')
 # 取得目前時間
-now = datetime.now() + timedelta(hours=8)
+now = datetime.now() #+ timedelta(hours=8)
 
 def sendLineNotify(innow,inleveloption,inparkingNo,incarNo,imessage):
   
