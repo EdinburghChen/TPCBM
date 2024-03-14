@@ -4,9 +4,6 @@ import sqlite3
 import requests
 from pytz import timezone
 
-hide_streamlit_style = """<style>[data-testid="stToolbar"] {visibility: hidden !important;}footer {visibility: hidden !important;}</style>"""
-st.markdown(hide_streamlit_style, unsafe_allow_html=True)
-
 conn=sqlite3.connect("./db/bmdb.db")
 
 # 要發送的訊息
