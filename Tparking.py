@@ -9,8 +9,8 @@ conn=sqlite3.connect("./db/bmdb.db")
 # 要發送的訊息
 message = '\n'
 # LINE Notify 權杖
-#token = "wQjVbOiFr8DPS014YuPxdUWyCzmw5JoLrtPhBZvlSdd"; //安防群組
-token = "QXrWt5K73eJVZkgQK7nnXEIecoAD4T4maO6L6GDK4CY" #我的剪貼簿
+token = "wQjVbOiFr8DPS014YuPxdUWyCzmw5JoLrtPhBZvlSdd"; //安防群組
+#token = "QXrWt5K73eJVZkgQK7nnXEIecoAD4T4maO6L6GDK4CY" #我的剪貼簿
 
 st.set_page_config(page_title="臨時停車", page_icon="🚗")
 st.markdown("## 臨時停車登記")
@@ -18,7 +18,7 @@ st.markdown("## 臨時停車登記")
 # 設定台灣台北時區
 #tz = timezone('Asia/Taipei')
 # 取得目前時間
-now = datetime.now() #+ timedelta(hours=8)
+now = datetime.now() + timedelta(hours=8)
 
 def sendLineNotify(innow,inleveloption,inparkingNo,incarNo,imessage):
   
